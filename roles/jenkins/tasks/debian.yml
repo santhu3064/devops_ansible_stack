@@ -1,0 +1,65 @@
+---
+- name: Ensure required variables are provided
+  assert:
+    that:
+      - jenkins_domain != ""
+    msg: "Mandatory variables are missing"
+
+- name: Add an apt key for jenkins
+  apt_key:
+    url: "{{ jenkins_repo_url }}/debian/jenkins.io.key"
+    state: present
+
+- name: Add apt-apt_repository for jenkins
+  apt_repository:
+    repo: "deb {{ jenkins_repo_url }}/debian-stable binary/"
+    state: present
+
+- name: Install jenkins
+  apt:
+    name: jenkins
+    state: present
+    update_cache: yes
+
+- name: Restart Jenkins
+  systemd:
+    name: jenkins
+    state: restarted
+    daemon_reload: yes
+
+- name: Confirm jenkins is started
+  wait_for:
+    host: "{{ jenkins_localhost }}"
+    port: "{{ jenkins_port }}"
+    timeout: "{{ jenkins_timeout }}"
+
+- name: copy http config of jenkins
+  template:
+    src: 000-default.conf.j2
+    dest: /etc/apache2/sites-available/000-default.conf
+
+- name: copy https config of jenkins
+  template:
+    src: default-ssl.conf.j2
+    dest: /etc/apache2/sites-available/default-ssl.conf
+
+- name: create a link file
+  file:
+    src: /etc/apache2/sites-available/default-ssl.conf
+    dest: /etc/apache2/sites-enabled/default-ssl.conf
+    state: link
+  notify: restart apache2
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{ maven_dir }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_group }}"
+
+
+- name: add settings.xml
+  template:
+    src: settings.xml.j2
+    dest: "{{ maven_dir }}/settings.xml"

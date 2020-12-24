@@ -1,0 +1,20 @@
+
+dependencies:
+  - {
+    role: java
+    }
+  - {
+    role: user_group,
+    user_name: "{{ nexus_username }}",
+    user_shell: "{{ nexus_shell }}",
+    user_id: "{{ nexus_userid }}",
+    group_name: "{{ nexus_groupname }}",
+    group_id: "{{ nexus_groupid }}"
+    }
+  - {
+    role: certbot,
+    certs: "{{ nexus_certs }}"
+    }
+  - {
+    role: apache2
+    }

@@ -1,0 +1,38 @@
+- name: Add Repository
+  yum_repository:
+    name: jenkins
+    baseurl: "{{ jenkins_repo_url }}/redhat-stable/jenkins.repo"
+    description: adding yum_repository for jenkins
+    enabled: yes
+
+- name: Add rpm key
+  rpm_key:
+    state: present
+    key: "{{ jenkins_yum_repo_key_url }}/redhat/jenkins-ci.org.key"
+
+- name: Install jenkins
+  yum:
+    name: jenkins
+    state: present
+    update_cache: yes
+  notify: Restart Jenkins
+
+- name: Confirm jenkins is started
+  wait_for:
+    host: "{{ jenkins_localhost }}"
+    port: "{{ jenkins_port }}"
+    timeout: "{{ jenkins_timeout }}"
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{ maven_dir }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_group }}"
+
+
+- name: add settings.xml
+  template:
+    src: settings.xml.j2
+    dest: "{{ maven_dir }}/settings.xml"

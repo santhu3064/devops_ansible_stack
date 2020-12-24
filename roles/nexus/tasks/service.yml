@@ -1,0 +1,24 @@
+# - name: Add nexus group to java
+#   file:
+#     path: /etc/java-8-openjdk
+#     group: "{{ nexus_groupname }}"
+#     mode: 0750
+#     recurse: true
+- name: Copy nexus service
+  template:
+    src: nexus.service.j2
+    dest: /etc/systemd/system/nexus.service
+    mode: 0750
+
+- name: restart nexus
+  systemd:
+    name: nexus
+    state: restarted
+    daemon_reload: yes
+
+- name: Check nexus port is up
+  wait_for:
+    host: "{{ nexus_host }}"
+    port: "{{ nexus_port }}"
+    state: present
+    timeout: "{{ nexus_timeout }}"

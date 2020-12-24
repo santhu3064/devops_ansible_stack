@@ -1,0 +1,26 @@
+---
+nexus_username: "nexus"
+nexus_userid: "1041"
+nexus_shell: "/bin/bash"
+nexus_groupname: "nexus"
+nexus_groupid: "1901"
+nexus_path: "/opt/nexus"
+nexus_version: ""
+nexus_port: "8081"
+nexus_host: "127.0.0.1"
+nexus_timeout: 120
+
+nexus_domain: ""
+nexus_email: "revathisanthosh.lalam@gmail.com"
+nexus_http_port: 80
+nexus_https_port: 443
+nexus_certs: ""
+
+nexus_admin_user: "admin"
+nexus_admin_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          34643266323333306234396536343865356662653131303865393038636530636538313736633937
+          3939396132303834663237343937383039396338646564320a626439623537366364626563613331
+          32666264323262326238623063366338333436633837616235633332313265303335343063303734
+          6439353632343835370a326562626366306462323364386135643366313934353030633662653036
+          3235

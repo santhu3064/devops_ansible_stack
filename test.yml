@@ -1,0 +1,197 @@
+all:
+  children:
+    aws_ec2:
+      hosts:
+        100.24.105.160:
+          ami_launch_index: 0
+          architecture: x86_64
+          block_device_mappings:
+          - device_name: /dev/sda1
+            ebs:
+              attach_time: 2020-06-21 13:57:13+00:00
+              delete_on_termination: true
+              status: attached
+              volume_id: vol-0c21232a2e7bc2fcd
+          capacity_reservation_specification:
+            capacity_reservation_preference: open
+          client_token: 0AF05189-D9A2-4DA1-99EE-6E4FC88D962C
+          cpu_options:
+            core_count: 1
+            threads_per_core: 1
+          ebs_optimized: false
+          ena_support: true
+          hibernation_options:
+            configured: false
+          hypervisor: xen
+          image_id: ami-039a49e70ea773ffc
+          instance_id: i-048a0e892d0752656
+          instance_type: t2.micro
+          key_name: jenkins
+          launch_time: 2020-06-21 13:57:13+00:00
+          metadata_options:
+            http_endpoint: enabled
+            http_put_response_hop_limit: 1
+            http_tokens: optional
+            state: applied
+          monitoring:
+            state: disabled
+          network_interfaces:
+          - association:
+              ip_owner_id: amazon
+              public_dns_name: ''
+              public_ip: 100.24.105.160
+            attachment:
+              attach_time: 2020-06-21 13:57:13+00:00
+              attachment_id: eni-attach-0ca222b2dff5b8a71
+              delete_on_termination: true
+              device_index: 0
+              status: attached
+            description: ''
+            groups:
+            - group_id: sg-00aec55981427a991
+              group_name: addressbook_security_group
+            interface_type: interface
+            ipv6_addresses: []
+            mac_address: 02:2b:ab:fa:4c:99
+            network_interface_id: eni-0062b6c39458f421a
+            owner_id: '296031173497'
+            private_ip_address: 10.1.5.238
+            private_ip_addresses:
+            - association:
+                ip_owner_id: amazon
+                public_dns_name: ''
+                public_ip: 100.24.105.160
+              primary: true
+              private_ip_address: 10.1.5.238
+            source_dest_check: true
+            status: in-use
+            subnet_id: subnet-09f248975a2dd4e49
+            vpc_id: vpc-00d1f919f493efeed
+          owner_id: '296031173497'
+          placement:
+            availability_zone: us-east-1c
+            group_name: ''
+            region: us-east-1
+            tenancy: default
+          private_dns_name: ip-10-1-5-238.ec2.internal
+          private_ip_address: 10.1.5.238
+          product_codes: []
+          public_dns_name: ''
+          public_ip_address: 100.24.105.160
+          requester_id: ''
+          reservation_id: r-00d09f1e26db0054c
+          root_device_name: /dev/sda1
+          root_device_type: ebs
+          security_groups:
+          - group_id: sg-00aec55981427a991
+            group_name: addressbook_security_group
+          source_dest_check: true
+          state:
+            code: 16
+            name: running
+          state_transition_reason: ''
+          subnet_id: subnet-09f248975a2dd4e49
+          tags:
+            Environment: addressbook-dev
+            Name: addressbook
+          virtualization_type: hvm
+          vpc_id: vpc-00d1f919f493efeed
+        54.160.8.248:
+          ami_launch_index: 0
+          architecture: x86_64
+          block_device_mappings:
+          - device_name: /dev/sda1
+            ebs:
+              attach_time: 2020-06-21 13:56:42+00:00
+              delete_on_termination: true
+              status: attached
+              volume_id: vol-0a112daf3f974f8b5
+          capacity_reservation_specification:
+            capacity_reservation_preference: open
+          client_token: 955736EB-8A1C-4E66-88A1-494F34D6FD57
+          cpu_options:
+            core_count: 1
+            threads_per_core: 1
+          ebs_optimized: false
+          ena_support: true
+          hibernation_options:
+            configured: false
+          hypervisor: xen
+          image_id: ami-039a49e70ea773ffc
+          instance_id: i-06a58748b191ebe60
+          instance_type: t2.micro
+          key_name: jenkins
+          launch_time: 2020-06-21 13:56:41+00:00
+          metadata_options:
+            http_endpoint: enabled
+            http_put_response_hop_limit: 1
+            http_tokens: optional
+            state: applied
+          monitoring:
+            state: disabled
+          network_interfaces:
+          - association:
+              ip_owner_id: amazon
+              public_dns_name: ''
+              public_ip: 54.160.8.248
+            attachment:
+              attach_time: 2020-06-21 13:56:41+00:00
+              attachment_id: eni-attach-0ffd6cf9be12f8aab
+              delete_on_termination: true
+              device_index: 0
+              status: attached
+            description: ''
+            groups:
+            - group_id: sg-00aec55981427a991
+              group_name: addressbook_security_group
+            interface_type: interface
+            ipv6_addresses: []
+            mac_address: 02:88:0d:88:29:79
+            network_interface_id: eni-075e4992403530d9d
+            owner_id: '296031173497'
+            private_ip_address: 10.1.5.150
+            private_ip_addresses:
+            - association:
+                ip_owner_id: amazon
+                public_dns_name: ''
+                public_ip: 54.160.8.248
+              primary: true
+              private_ip_address: 10.1.5.150
+            source_dest_check: true
+            status: in-use
+            subnet_id: subnet-09f248975a2dd4e49
+            vpc_id: vpc-00d1f919f493efeed
+          owner_id: '296031173497'
+          placement:
+            availability_zone: us-east-1c
+            group_name: ''
+            region: us-east-1
+            tenancy: default
+          private_dns_name: ip-10-1-5-150.ec2.internal
+          private_ip_address: 10.1.5.150
+          product_codes: []
+          public_dns_name: ''
+          public_ip_address: 54.160.8.248
+          requester_id: ''
+          reservation_id: r-0e36b1be5d4058ad3
+          root_device_name: /dev/sda1
+          root_device_type: ebs
+          security_groups:
+          - group_id: sg-00aec55981427a991
+            group_name: addressbook_security_group
+          source_dest_check: true
+          state:
+            code: 16
+            name: running
+          state_transition_reason: ''
+          subnet_id: subnet-09f248975a2dd4e49
+          tags:
+            Environment: addressbook-dev
+            Name: addressbook
+          virtualization_type: hvm
+          vpc_id: vpc-00d1f919f493efeed
+    foo_addressbook_dev:
+      hosts:
+        100.24.105.160: {}
+        54.160.8.248: {}
+    ungrouped: {}

@@ -1,0 +1,12 @@
+plugin: aws_ec2
+regions:
+  - us-east-1
+filters:
+   tag:Env: dev
+keyed_groups:
+  - key: tags.App
+    prefix: dev_stack
+  - key: tags.Name
+    prefix: dev
+hostnames:
+  - ip-address

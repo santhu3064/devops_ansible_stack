@@ -1,0 +1,7 @@
+---
+# defaults file for user_group
+user_name: ""
+user_shell: ""
+user_id: ""
+group_name: ""
+group_id: ""

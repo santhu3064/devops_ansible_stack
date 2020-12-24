@@ -1,0 +1,13 @@
+---
+- name: install apache2_module
+  apt:
+    name: apache2
+    state: present
+    update_cache: yes
+
+- name: Enable ssl module
+  apache2_module:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ apache2_enable_modules }}"
+  notify: restart apache2

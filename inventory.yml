@@ -1,0 +1,23 @@
+[jenkins_server]
+35.176.12.49 ansible_user=ubuntu
+
+[nexus_server]
+35.172.234.134 ansible_user=ubuntu
+
+[addressbook_server]
+18.208.203.118 ansible_user=ubuntu
+
+[jenkins_server:vars]
+# certs=[{'email':'revathisanthosh.lalam@gmail.com','domain':'jenkins.devopsprofessional.co.in'}]
+jenkins_domain="jenkins.devopsprofessional.co.in"
+jenkins_certs=[{'email':'revathisanthosh.lalam@gmail.com','domain':'jenkins.devopsprofessional.co.in'}]
+
+
+[nexus_server:vars]
+nexus_version= "3.24.0-02"
+nexus_domain="nexus-hanu.devopsprofessional.co.in"
+nexus_certs=[{'email':'revathisanthosh.lalam@gmail.com','domain':'nexus-hanu.devopsprofessional.co.in'}]
+
+[addressbook_server:vars]
+addressbook_domain="addresssbook-hanu.devopsprofessional.co.in"
+addressbook_certs=[{'email':'revathisanthosh.lalam@gmail.com','domain':'addresssbook-hanu.devopsprofessional.co.in'}]

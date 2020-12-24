@@ -1,0 +1,24 @@
+- name: Create nexus Directory
+  file:
+    state: directory
+    path: "{{ nexus_path }}"
+    owner: "{{ nexus_username }}"
+    group: "{{ nexus_groupname }}"
+    mode: 0750
+
+- name: Unarchive nexus binary to server
+  unarchive:
+    src: "/tmp/nexus-{{ nexus_version }}-unix.tar.gz"
+    dest: "{{ nexus_path }}"
+    owner: "{{ nexus_username }}"
+    group: "{{ nexus_groupname }}"
+    mode: 0750
+
+- name: Change optnexus to nexus
+  file:
+    state: directory
+    path: "{{ nexus_path }}"
+    owner: "{{ nexus_username }}"
+    group: "{{ nexus_groupname }}"
+    mode: 0750
+    recurse: true

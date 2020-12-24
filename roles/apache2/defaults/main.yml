@@ -1,0 +1,10 @@
+---
+# defaults file for apache2
+apache2_enable_modules:
+  - ssl
+  - rewrite
+  - proxy_html
+  - proxy_http
+  - headers
+  - request
+  - proxy

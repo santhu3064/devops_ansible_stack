@@ -1,0 +1,15 @@
+- name: Ensure variables are provided
+  assert:
+    that:
+      - user_name != ""
+      - user_shell != ""
+      - user_id != ""
+    msg: "Mandatory variables are missing"
+
+- name: Create User
+  user:
+    name: "{{ user_name }}"
+    state: present
+    shell: "{{ user_shell }}"
+    group: "{{ group_name | default( user_name) }}"
+    uid: "{{ user_id }}"

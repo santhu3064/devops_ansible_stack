@@ -1,0 +1,19 @@
+---
+jenkins_repo_url: "https://pkg.jenkins.io"
+jenkins_yum_repo_key_url: "https://jenkins-ci.org"
+
+jenkins_port: 8080
+jenkins_localhost: "127.0.0.1"
+jenkins_timeout: 60
+jenkins_home: "/var/lib/jenkins"
+maven_dir: "{{ jenkins_home }}/.m2"
+
+jenkins_user: jenkins
+jenkins_group: jenkins
+jenkins_http_port: 80
+jenkins_https_port: 443
+jenkins_domain: ""
+admin_email: "lalamrevathi55@gmail.com"
+jenkins_certs: ""
+nexus_username: admin
+nexus_password: admin@123

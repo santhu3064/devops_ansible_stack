@@ -1,0 +1,17 @@
+<VirtualHost *:443>
+               ServerAdmin webmaster@localhost
+
+               DocumentRoot /var/www/html
+
+
+               ErrorLog ${APACHE_LOG_DIR}/error.log
+               CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+               SSLEngine on
+
+               SSLCertificateFile      /etc/letsencrypt/live/{{ addressbook_domain }}/fullchain.pem
+               SSLCertificateKeyFile /etc/letsencrypt/live/{{ addressbook_domain }}/privkey.pem
+               Redirect / /addressbook
+               ProxyPass /addressbook http://127.0.0.1:8080/addressbook
+               ProxyPassReverse /addressbook http://127.0.0.1:8080/addressbook
+       </VirtualHost>

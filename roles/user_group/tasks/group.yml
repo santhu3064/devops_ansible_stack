@@ -1,0 +1,12 @@
+- name: Ensure required variables are provided
+  assert:
+    that:
+      - group_name != ""
+      - group_id != ""
+    msg: "Mandatory variables are missing"
+
+- name: Create group
+  group:
+    name: "{{ group_name }}"
+    gid: "{{ group_id }}"
+    state: present

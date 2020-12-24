@@ -1,0 +1,8 @@
+---
+# defaults file for certbot
+repo_list:
+  - ppa:certbot/certbot
+
+# certs:
+#   - email: "revathisanthosh.lalam@gmail.com"
+#     domain: "jenkins.devopsprofessional.co.in"

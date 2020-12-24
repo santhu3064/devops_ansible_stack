@@ -1,0 +1,10 @@
+---
+nexus_url: nexus-hanu.devopsprofessional.co.in
+version: ""
+addressbook_predeploy_dir: /opt/addressbook-prepoddeploy
+tomcat_user: tomcat
+tomcat_group: tomcat
+addressbook_deploy_dir: /opt/tomcat/webapps
+nexus_username: ""
+nexus_password: ""
+nexus_repo: ""

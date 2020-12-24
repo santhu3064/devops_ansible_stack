@@ -1,0 +1,16 @@
+---
+- name: Install java on RedHat
+  yum:
+    name: java-1.8.0-openjdk.x86_64
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'RedHat'
+
+
+
+- name: Install java on Ubuntu
+  apt:
+    name: openjdk-8-jdk
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Debian'

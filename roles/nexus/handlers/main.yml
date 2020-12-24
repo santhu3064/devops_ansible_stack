@@ -1,0 +1,18 @@
+---
+- name: start nexus
+  systemd:
+    name: nexus
+    state: started
+    daemon_reload: yes
+
+- name: stop nexus
+  systemd:
+    name: nexus
+    state: stopped
+    daemon_reload: yes
+
+- name: restart nexus
+  systemd:
+    name: nexus
+    state: restarted
+    daemon_reload: yes

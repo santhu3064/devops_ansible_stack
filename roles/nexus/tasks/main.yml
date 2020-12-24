@@ -1,0 +1,12 @@
+---
+- name: Ensure variables are provided
+  assert:
+    that:
+      - nexus_version != ""
+      - nexus_domain != ""
+    msg: Required variables are missing
+
+- include_tasks: installation.yml
+- include_tasks: service.yml
+- include_tasks: apache.yml
+- include_tasks: update-admin-pass.yml

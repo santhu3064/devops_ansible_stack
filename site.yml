@@ -1,0 +1,50 @@
+# - hosts: jenkins_server
+#   become: true
+#   roles:
+#     - jenkins
+#
+# - hosts: nexus_server
+#   become: true
+#   roles:
+#     - nexus
+#
+# - hosts: addressbook_server
+#   become: true
+#   roles:
+#     - addressbook
+
+# - hosts: dev_nexus
+#   become: true
+#   roles:
+#     - nexus
+#   vars:
+#     nexus_version: "3.24.0-02"
+#     nexus_domain: "nexus-hanu.devopsprofessional.co.in"
+#     nexus_certs: [{'email':'revathisanthosh.lalam@gmail.com','domain':'nexus-hanu.devopsprofessional.co.in'}]
+- hosts: jenkins_server
+  become: true
+  roles:
+    - jenkins
+  vars:
+    jenkins_domain: "jenkins.devopsprofessional.co.in"
+    jenkins_certs: [{'email':'revathisanthosh.lalam@gmail.com','domain':'jenkins.devopsprofessional.co.in'}]
+#
+# - hosts: dev_stack_Tomcat
+#   become: true
+#   roles:
+#     - tomcat8
+#
+# - hosts: dev_addressbook_1
+#   become: true
+#   roles:
+#       - addressbook
+#   vars:
+#     addressbook_domain: "addressbook-hanu1.devopsprofessional.co.in"
+#     addressbook_certs: [{'email':'revathisanthosh.lalam@gmail.com','domain':'addressbook-hanu1.devopsprofessional.co.in'}]
+# - hosts: dev_addressbook_2
+#   become: true
+#   roles:
+#     - addressbook
+#   vars:
+#     addressbook_domain: "addressbook-hanu2.devopsprofessional.co.in"
+#     addressbook_certs: [{'email':'revathisanthosh.lalam@gmail.com','domain':'addressbook-hanu2.devopsprofessional.co.in'}]

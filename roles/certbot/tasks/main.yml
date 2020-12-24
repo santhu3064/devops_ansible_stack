@@ -1,0 +1,35 @@
+---
+- name: Ensure required variables for certbot are provided
+  assert:
+    that:
+      - certs != ""
+    msg: "`Mandatory variables are missing"
+
+- name: Install dependent packages for certbot
+  apt:
+    name: software-properties-common
+    state: present
+    update_cache: yes
+
+# - name: Adding apt repo list
+#   apt_repository:
+#    repo: 'universe'
+#    state: present
+#    update_cache: yes
+
+- name: Adding apt repo list
+  apt_repository:
+   repo: "{{ item }}"
+   state: present
+   update_cache: yes
+  with_items: "{{ repo_list }}"
+
+- name: Install certbot
+  apt:
+    name: certbot
+    state: present
+    update_cache: yes
+
+- name: create certificate
+  command: certbot certonly --standalone --noninteractive --agree-tos --email {{ item.email }} -d {{ item.domain }}
+  with_items: "{{ certs }}"

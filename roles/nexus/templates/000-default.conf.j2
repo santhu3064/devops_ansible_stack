@@ -1,0 +1,14 @@
+<VirtualHost *:{{ nexus_http_port }}>
+        ServerName {{ nexus_domain }}
+
+        ServerAdmin {{ nexus_email }}
+        DocumentRoot /var/www/html
+
+        LogLevel info
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        RewriteEngine on
+        RewriteRule (.*) https://{{ nexus_domain }}$1
+
+</VirtualHost>

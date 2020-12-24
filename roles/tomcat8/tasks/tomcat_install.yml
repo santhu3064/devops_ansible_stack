@@ -1,0 +1,8 @@
+- name: extract the nexus binary
+  unarchive:
+    src: "{{ installation_srclocation }}/{{ tomcat_archive}}"
+    dest: "{{ tomcat_dir }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    extra_opts: [--strip-components=1]
+    mode: 0750

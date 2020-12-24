@@ -1,0 +1,17 @@
+<VirtualHost *:{{ nexus_https_port }}>
+  SSLEngine on
+
+  SSLCertificateFile      /etc/letsencrypt/live/{{ nexus_domain }}/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/{{ nexus_domain }}/privkey.pem
+  AllowEncodedSlashes NoDecode
+  ProxyRequests Off
+  ProxyPreserveHost On
+
+  ServerName {{ nexus_domain }}
+  ServerAdmin {{ nexus_email }}
+  ProxyPass / http://{{ nexus_host }}:{{ nexus_port }}/ nocanon
+  ProxyPassReverse / http://{{ nexus_host }}:{{ nexus_port }}/
+  RequestHeader set X-Forwarded-Proto "https"
+
+
+</VirtualHost>

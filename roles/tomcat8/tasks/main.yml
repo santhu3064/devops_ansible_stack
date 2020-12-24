@@ -1,0 +1,14 @@
+---
+- name: check all the variables are provided or not
+  assert:
+   that:
+     - installation_srclocation != ""
+     - tomcat_archive != ""
+     - tomcat_version != ""
+     - tomcat_shell != ""
+     - tomcat_dir != ""
+   msg: "Required variables are not assigned"
+
+- include: directory.yml
+- include: tomcat_install.yml
+- include: create_tomcat_service.yml

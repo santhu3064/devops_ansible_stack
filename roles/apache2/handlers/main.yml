@@ -1,0 +1,51 @@
+---
+- name: start apache2
+  systemd:
+    name: apache2
+    state: started
+    daemon_reload: yes
+
+- name: stop apache2
+  systemd:
+    name: apache2
+    state: stopped
+    daemon_reload: yes
+
+- name: restart apache2
+  systemd:
+    name: apache2
+    state: restarted
+    daemon_reload: yes
+
+- name: reload apache2
+  systemd:
+    name: apache2
+    state: reloaded
+    daemon_reload: yes
+
+
+- name: start httpd
+  systemd:
+    name: httpd
+    state: started
+    daemon_reload: yes
+
+
+- name: stop httpd
+  systemd:
+    name: httpd
+    state: stopped
+    daemon_reload: yes
+
+
+- name: restart httpd
+  systemd:
+    name: httpd
+    state: restarted
+    daemon_reload: yes
+
+- name: reload httpd
+  systemd:
+    name: httpd
+    state: reloaded
+    daemon_reload: yes

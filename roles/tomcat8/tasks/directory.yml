@@ -1,0 +1,7 @@
+- name: create a tomcat directory
+  file:
+    path: "{{ tomcat_dir }}"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    mode: 0750

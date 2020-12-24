@@ -1,0 +1,31 @@
+
+# /opt/nexus/sonatype-work/nexus3/admin.password
+
+# --- store the passowrd fro above file in a vriable(nexus_initial_admin_password)
+
+# --- print the password(hint used debug)
+# curl -X PUT "http://127.0.0.1:8081/service/rest/beta/security/users/{{ username}}/change-password" -H "accept: application/json" -H "Content-Type: text/plain" -d "abc"
+
+- name: Load initial admin nexus_initial_admin_password
+  command: cat {{ nexus_path }}/sonatype-work/nexus3/admin.password
+  register: nexus_initial_admin_password
+
+- name: print nexus nexus_initial_admin_password
+  debug:
+    var: nexus_initial_admin_password
+
+- name: print nexus nexus_initial_admin_password
+  debug:
+    var:  nexus_initial_admin_password.stdout
+
+- name: Update Admin password
+  uri:
+    url: "http://{{ nexus_host }}:{{ nexus_port }}/service/rest/beta/security/users/{{ nexus_admin_user }}/change-password"
+    method: PUT
+    user: "{{ nexus_admin_user }}"
+    password: "{{ nexus_initial_admin_password.stdout }}"
+    force_basic_auth: yes
+    status_code: 200,204
+    timeout: 30
+    body: "{{ nexus_admin_password }}"
+    headers: { 'accept': 'application/json', 'Content-Type': 'text/plain'}

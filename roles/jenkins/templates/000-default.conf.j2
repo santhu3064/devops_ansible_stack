@@ -1,0 +1,14 @@
+<VirtualHost *:{{ jenkins_http_port }}>
+        ServerName {{ jenkins_domain}}
+
+        ServerAdmin {{ admin_email }}
+        DocumentRoot /var/www/html
+
+        LogLevel info
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        RewriteEngine on
+        RewriteRule (.*) https://{{ jenkins_domain }}$1
+
+</VirtualHost>

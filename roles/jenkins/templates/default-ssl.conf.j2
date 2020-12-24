@@ -1,0 +1,37 @@
+<VirtualHost *:{{ jenkins_https_port }}>
+       ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/www/html
+
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+        #   SSL Engine Switch:
+        #   Enable/Disable SSL for this virtual host.
+        SSLEngine on
+
+        SSLCertificateFile      /etc/letsencrypt/live/{{ jenkins_domain }}/fullchain.pem
+        SSLCertificateKeyFile /etc/letsencrypt/live/{{ jenkins_domain }}/privkey.pem
+
+        RewriteEngine on
+        RequestHeader add "X-Forwarded-Proto" "https"
+        Proxypass     /   http://{{ jenkins_localhost }}:{{ jenkins_port }}/  nocanon
+        ProxypassReverse / http://{{ jenkins_localhost }}:{{ jenkins_port }}/
+        AllowEncodedSlashes NoDecode
+
+
+
+
+
+        <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                        SSLOptions +StdEnvVars
+        </FilesMatch>
+        <Directory /usr/lib/cgi-bin>
+                        SSLOptions +StdEnvVars
+        </Directory>
+
+
+</VirtualHost>
