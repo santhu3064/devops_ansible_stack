@@ -1,0 +1,11 @@
+- include: apache.yml
+  when: ansible_os_family == 'Debian'
+
+- include: install-certs.yml
+  when: ansible_os_family == 'Debian'
+
+
+- include: httpd.yml
+  when: ansible_os_family == 'RedHat'
+# #
+# - include: "{{ ansible_os_family }}.yml"

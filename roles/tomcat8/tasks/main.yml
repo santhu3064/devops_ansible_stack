@@ -7,6 +7,7 @@
      - tomcat_version != ""
      - tomcat_shell != ""
      - tomcat_dir != ""
+     - java_home != ""
    msg: "Required variables are not assigned"
 
 - include: directory.yml

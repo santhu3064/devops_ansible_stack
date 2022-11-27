@@ -5,9 +5,13 @@ tomcat_group: "tomcat"
 tomcat_shell: "/bin/false"
 tomcat_restart_sec: 10
 
-tomcat_version: "8.5.56"
+tomcat_version: "8.5.84"
 tomcat_archive_format: "tar.gz"
 
 installation_srclocation: "/tmp"
 tomcat_archive: "apache-tomcat-{{ tomcat_version }}.{{ tomcat_archive_format }}"
 tomcat_umask_value: 0007
+
+tomcat_url: https://dlcdn.apache.org/tomcat/tomcat-8/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz
+
+java_home: "/usr/lib/jvm/java-1.8.0-openjdk-amd64"

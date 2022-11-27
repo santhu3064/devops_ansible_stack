@@ -2,6 +2,9 @@
 # defaults file for certbot
 repo_list:
   - ppa:certbot/certbot
+packages:
+  - snapd
+  - software-properties-common
 
 # certs:
 #   - email: "revathisanthosh.lalam@gmail.com"

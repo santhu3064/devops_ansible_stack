@@ -1,0 +1,13 @@
+- name: create certificate
+  command: certbot --nginx --noninteractive --agree-tos --email {{ item.email }} -d {{ item.domain }}
+  with_items: "{{ certs }}"
+  when: install_certificate | bool
+
+
+- name: Create addressbook config
+  template:
+    src: addressbook.j2
+    dest: "/etc/nginx/sites-available/default"
+  with_items: "{{ certs }}"
+  when: deploy_addressbook | bool
+  notify: restart nginx

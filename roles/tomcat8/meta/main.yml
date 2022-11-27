@@ -1,12 +1,10 @@
-
- dependencies:
-    - {
-      role: java8
-      }
-    - {
-      role: create_user_group,
-      posix_username: "{{ tomcat_user }}",
-      posix_groupname: "{{ tomcat_group }}",
-      posix_shell: "{{ tomcat_shell }}",
-      posix_home: "{{ tomcat_dir }}"
-      }
+ # 
+ # dependencies:
+ #    - {role: java}
+ #    - {
+ #      role: create_user_group,
+ #      posix_username: "{{ tomcat_user }}",
+ #      posix_groupname: "{{ tomcat_group }}",
+ #      posix_shell: "{{ tomcat_shell }}",
+ #      posix_home: "{{ tomcat_dir }}"
+ #      }

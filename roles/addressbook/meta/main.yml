@@ -1,9 +1,9 @@
-
- dependencies:
-   - {
-      role: certbot,
-      certs: "{{ addressbook_certs }}"
-      }
-   - {
-      role: apache2
-     }
+ # 
+ # dependencies:
+ #   - {
+ #      role: certbot,
+ #      certs: "{{ addressbook_certs }}"
+ #      }
+ #   - {
+ #      role: apache2
+ #     }

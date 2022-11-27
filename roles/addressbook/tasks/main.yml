@@ -6,19 +6,19 @@
     owner: tomcat
     group: tomcat
 
-- name: copy http config of addressbook
-  template:
-    src: 000-default.conf.j2
-    dest: /etc/apache2/sites-available/000-default.conf
-
-- name: copy https config of addressbook
-  template:
-    src: default-ssl.conf.j2
-    dest: /etc/apache2/sites-available/default-ssl.conf
-
-- name: create a link file
-  file:
-    src: /etc/apache2/sites-available/default-ssl.conf
-    dest: /etc/apache2/sites-enabled/default-ssl.conf
-    state: link
-  notify: restart apache2
+# - name: copy http config of addressbook
+#   template:
+#     src: 000-default.conf.j2
+#     dest: /etc/apache2/sites-available/000-default.conf
+#
+# - name: copy https config of addressbook
+#   template:
+#     src: default-ssl.conf.j2
+#     dest: /etc/apache2/sites-available/default-ssl.conf
+#
+# - name: create a link file
+#   file:
+#     src: /etc/apache2/sites-available/default-ssl.conf
+#     dest: /etc/apache2/sites-enabled/default-ssl.conf
+#     state: link
+#   notify: restart apache2

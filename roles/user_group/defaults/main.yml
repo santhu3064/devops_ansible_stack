@@ -1,7 +1,7 @@
 ---
 # defaults file for user_group
-user_name: ""
-user_shell: ""
-user_id: ""
-group_name: ""
-group_id: ""
+user_name: "tomcat"
+user_shell: "/bin/false"
+user_id: "1050"
+group_name: "tomcat"
+group_id: "1050"
